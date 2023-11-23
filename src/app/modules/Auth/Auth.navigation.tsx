@@ -74,6 +74,8 @@ const Logo = styled.img`
 const Right = styled.div`
     display: flex;
     width: 480px;
+    justify-content: center;
+    align-items: center;
 `;
 
 const Main = styled.div`
@@ -101,7 +103,7 @@ const Text = styled.h1`
 `;
 
 const Image = styled.img`
-
+    
 `;
 
 export default AuthNavigation;
