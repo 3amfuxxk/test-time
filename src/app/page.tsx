@@ -1,10 +1,11 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import AuthNavigation from './modules/Auth/Auth.navigation';
 import { createGlobalStyle } from 'styled-components';
-import { Form } from 'formik/dist/Form';
-import LoginButton from './components/LoginButton';
-import TextUpForm from './components/TextUpForm';
+import TextUpForm from './components/SignUpPage/TextUpForm';
+import SignInForm from './components/SignUpPage/SignInForm';
+import styled from 'styled-components';
+import SignUpForm from './components/SignUpPage/SignUpForm';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -17,16 +18,44 @@ const GlobalStyles = createGlobalStyle`
     color: #00A76F;
   }
 `
-const handleClick = () => {
-  console.log('Button clicked!');
-}
+const DivHolder = styled.div`
+  display: flex;
+  width: 352px;
+  flex-direction: column;
+  gap:40px;
+`
+
+
 
 export default function Home() {
+  const [showSignInForm, setShowSignInForm] = useState(true);
+
+  const handleSubmit = (values: any) => {
+    // Обработка данных формы
+    console.log(values);
+  };
+
+  const toggleForm = () => {
+    setShowSignInForm((prev) => !prev);
+  };
+
   return (
     <AuthNavigation>
-        <GlobalStyles />
-        <TextUpForm upperText="Welcome back!" bottomText="Don't have an account?" linkText=" Sign Up here!" linkHref="/" />
-        {/* <LoginButton label='Hello' onClick={handleClick} disabled={false} /> */}
+      <GlobalStyles />
+      <DivHolder>
+        <TextUpForm
+          upperText={showSignInForm ? "Welcome back!" : "Get started absolutely free"}
+          bottomText={showSignInForm ? "Don't have an account?" : "Already have an account?"}
+          linkText={showSignInForm ? ' Sign Up here!' : ' Login'}
+          linkHref="/"
+          onClick={toggleForm}
+        />
+        {showSignInForm ? (
+          <SignInForm onSubmit={handleSubmit} />
+        ) : (
+          <SignUpForm onSubmit={handleSubmit} />
+        )}
+      </DivHolder>
     </AuthNavigation>
-  )
+  );
 }

@@ -76,6 +76,7 @@ const Right = styled.div`
     width: 480px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 `;
 
 const Main = styled.div`
