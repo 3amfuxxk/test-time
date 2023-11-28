@@ -30,13 +30,9 @@ const Bottom = styled.p`
     color: #212B36;
 `;
 
-const Linked = styled.a`
-    outline: none;
-    color: #00A76F;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 22px;
+const Linked = styled(Link)`
     text-decoration: none;
+    color: #00A76F;
 `
 
 const TextUpForm: React.FC<{
@@ -44,16 +40,16 @@ const TextUpForm: React.FC<{
   bottomText: string;
   linkText: string;
   linkHref: string;
-  onClick: () => void; // Новый пропс
+  onClick: () => void;
 }> = ({ upperText, bottomText, linkText, linkHref, onClick }) => {
   return (
     <TextUpBlock className={public_sans.className}>
       <Upper>{upperText}</Upper>
       <Bottom>
         {bottomText}
-        <Link href={linkHref} onClick={onClick}>
+        <Linked href={linkHref} onClick={onClick}>
           {linkText}
-        </Link>
+        </Linked>
       </Bottom>
     </TextUpBlock>
   );

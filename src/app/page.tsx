@@ -6,16 +6,12 @@ import TextUpForm from './components/SignUpPage/TextUpForm';
 import SignInForm from './components/SignUpPage/SignInForm';
 import styled from 'styled-components';
 import SignUpForm from './components/SignUpPage/SignUpForm';
+import DivAgree from './components/SignUpPage/AgreeStatements';
 
 const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: #00A76F;
   }
 `
 const DivHolder = styled.div`
@@ -55,6 +51,7 @@ export default function Home() {
         ) : (
           <SignUpForm onSubmit={handleSubmit} />
         )}
+        <DivAgree linkPrivacyPolicy='/' linkTermsOfUse='/'/>
       </DivHolder>
     </AuthNavigation>
   );
