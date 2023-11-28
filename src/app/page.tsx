@@ -53,7 +53,7 @@ export default function Home() {
           <SignUpForm onSubmit={handleSubmit} />
         )}
         <DivAgree linkPrivacyPolicy='/' linkTermsOfUse='/'/>
-        <Link href="/main">
+        <Link href="/mainpage">
           Hello
         </Link>
       </DivHolder>
