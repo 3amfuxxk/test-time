@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import Input from './Input';
 import LoginButton from './LoginButton';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const FormStyles = styled(Form)`
     display: flex;

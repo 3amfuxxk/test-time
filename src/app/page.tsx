@@ -7,6 +7,8 @@ import SignInForm from './components/SignUpPage/SignInForm';
 import styled from 'styled-components';
 import SignUpForm from './components/SignUpPage/SignUpForm';
 import DivAgree from './components/SignUpPage/AgreeStatements';
+import Link from 'next/link';
+// import { useRouter } from 'next/navigation';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -27,7 +29,6 @@ export default function Home() {
   const [showSignInForm, setShowSignInForm] = useState(true);
 
   const handleSubmit = (values: any) => {
-    // Обработка данных формы
     console.log(values);
   };
 
@@ -52,6 +53,9 @@ export default function Home() {
           <SignUpForm onSubmit={handleSubmit} />
         )}
         <DivAgree linkPrivacyPolicy='/' linkTermsOfUse='/'/>
+        <Link href="/main">
+          Hello
+        </Link>
       </DivHolder>
     </AuthNavigation>
   );
