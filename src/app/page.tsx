@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import SignUpForm from './components/SignUpPage/SignUpForm';
 import DivAgree from './components/SignUpPage/AgreeStatements';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -26,10 +26,14 @@ const DivHolder = styled.div`
 
 
 export default function Home() {
+  const router = useRouter();
+
   const [showSignInForm, setShowSignInForm] = useState(true);
 
   const handleSubmit = (values: any) => {
     console.log(values);
+
+    router.push('/mainpage');
   };
 
   const toggleForm = () => {
@@ -53,9 +57,6 @@ export default function Home() {
           <SignUpForm onSubmit={handleSubmit} />
         )}
         <DivAgree linkPrivacyPolicy='/' linkTermsOfUse='/'/>
-        <Link href="/mainpage">
-          Hello
-        </Link>
       </DivHolder>
     </AuthNavigation>
   );
