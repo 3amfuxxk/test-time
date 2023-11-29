@@ -30,7 +30,6 @@ const Menu = () => {
         <MenuMain>
             <Logo>
                 <img src="/img/stack.png">
-
                 </img>
             </Logo>
             <GroupName text="Overview" />

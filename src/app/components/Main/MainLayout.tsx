@@ -2,17 +2,20 @@ import React, { ReactNode } from "react";
 import styled from 'styled-components';
 import Link from 'next/link';
 import Menu from "./Menu";
-
-const Header = styled.header`
-
-`;
+import Header from "./Header";
 
 const ContentPage = styled.div`
-    
+    width: 1160px;
+    position: relative;
+    height: 100vh;
 `;
 
 const Wrapper = styled.div`
-    
+    width: 1440px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
 `;
 
 const Left = styled.div`
@@ -28,13 +31,11 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
     return (
         <Wrapper>
-            <Header>
-
-            </Header>
             <Left>
                 <Menu />
             </Left>
             <ContentPage>
+                <Header />
                 {children}
             </ContentPage>
         </Wrapper>
